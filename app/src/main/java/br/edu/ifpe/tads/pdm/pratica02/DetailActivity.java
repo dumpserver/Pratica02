@@ -1,5 +1,6 @@
 package br.edu.ifpe.tads.pdm.pratica02;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.res.Configuration;
@@ -17,7 +18,17 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
         setContentView(R.layout.activity_detail);
+
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
